@@ -7,7 +7,7 @@ function main() {
   const btn = document.getElementById("change-btn");
   const output = document.getElementById("output");
 
-  btn.addEventListener('click', function() {
+  btn.addEventListener("click", function () {
     const bgColor = generateHexColor();
     root.style.backgroundColor = bgColor;
     output.value = bgColor;
