@@ -14,24 +14,26 @@ window.onload = () => {
 
 // main or boot function, this function will take care of getting all the DOM references
 function main() {
-    const root = document.getElementById('root');
-    const output = document.getElementById('output');
-    const output2 = document.getElementById('output2');
-    const changeBtn = document.getElementById('change-btn');
-    const copyBtn = document.getElementById('copy-btn');
-    const copyBtn2 = document.getElementById('copy-btn2');
+    const generateRandomColorBtn = document.getElementById('generate-random-color');
 
-    changeBtn.addEventListener("click", function () {
-        const color = generateColorDecimal();
-        const hex = generateHexColor(color);
-        const rgb = generateRGBColor(color);
-        root.style.backgroundColor = hex;
-        output.value = hex.substring(1);
-        output2.value = rgb;
-    });
+    // const root = document.getElementById('root');
+    // const output = document.getElementById('output');
+    // const output2 = document.getElementById('output2');
+    // const changeBtn = document.getElementById('change-btn');
+    // const copyBtn = document.getElementById('copy-btn');
+    // const copyBtn2 = document.getElementById('copy-btn2');
+
+    generateRandomColorBtn.addEventListener(
+        'click',
+        handleGenerateRandomColorBtn
+    );
 }
 
 // event handlers
+function handleGenerateRandomColorBtn() {
+    const color = generateColorDecimal();
+    updateColorCodeToDom(color);
+}
 
 // Dom function
 function generateToastMessage(msg) {
@@ -51,7 +53,23 @@ function generateToastMessage(msg) {
     docuemnt.body.appendChild(div);
 }
 
+/**
+ * update dom elements with calculated color values
+ * @param {object} color
+ */
 function updateColorCodeToDom(color) {
+    const hexColor = generateHexColor(color);
+    const rgbColor = generateRGBColor(color);
+
+    document.getElementById('color-display').style.backgroundColor = hexColor;
+    document.getElementById('color-mode-hex').value = hexColor;
+    document.getElementById('color-mode-rgb').value = rgbColor;
+    document.getElementById('color-slider-red').value = color.red;
+    document.getElementById('color-slider-red-label').innerText = color.red;
+    document.getElementById('color-slider-green').value = color.green;
+    document.getElementById('color-slider-green-label').innerText = color.green;
+    document.getElementById('color-slider-blue').value = color.blue;
+    document.getElementById('color-slider-blue-label').innerText = color.blue;
 
 }
 
@@ -63,7 +81,7 @@ function updateColorCodeToDom(color) {
  */
 function generateColorDecimal() {
     const red = Math.floor(Math.random() * 255);
-    const green = Math.floor(Math.randome() * 255);
+    const green = Math.floor(Math.random() * 255);
     const blue = Math.floor(Math.random() * 255);
 
     return {
@@ -97,15 +115,20 @@ function generateRGBColor({ red, green, blue }) {
 }
 
 /**
- * convert hex color to rgb
+ * convert hex color to decimal colors object
  * @param {string} hex
+ * @returns {object}
  */
-function hexToRgb(hex) {
+function hexToDecimalColors(hex) {
     const red = parseInt(hex.slice(0, 2), 16);
     const green = parseInt(hex.slice(2, 4), 16);
     const blue = parseInt(hex.slice(4), 16);
 
-    return `rgb(${red}, ${green}, ${blue})`;
+    return {
+        red,
+        green,
+        blue
+    };
 }
 
 /**
