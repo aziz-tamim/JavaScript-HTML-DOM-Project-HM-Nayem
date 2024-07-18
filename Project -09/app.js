@@ -17,14 +17,14 @@ function main() {
   const generateRandomColorBtn = document.getElementById(
     "generate-random-color"
   );
-  const colorModeHexInp = document.getElementById('input-hex');
+  const colorModeHexInp = document.getElementById("input-hex");
 
   generateRandomColorBtn.addEventListener(
     "click",
     handleGenerateRandomColorBtn
   );
 
-  colorModeHexInp.addEventListener('keyup', handleColorModeHexInp);
+  colorModeHexInp.addEventListener("keyup", handleColorModeHexInp);
 }
 
 // event handlers
@@ -34,14 +34,14 @@ function handleGenerateRandomColorBtn() {
 }
 
 function handleColorModeHexInp(e) {
-    const hexColor = e.target.value;
-    if (hexColor) {
-        this.value = hexColor.toUpperCase();
-        if (isValidHex(hexColor)) {
-            const color = hexToDecimalColors(hexColor);
-            updateColorCodeToDom(color);
-        }
+  const hexColor = e.target.value;
+  if (hexColor) {
+    this.value = hexColor.toUpperCase();
+    if (isValidHex(hexColor)) {
+      const color = hexToDecimalColors(hexColor);
+      updateColorCodeToDom(color);
     }
+  }
 }
 
 // Dom function
@@ -70,7 +70,9 @@ function updateColorCodeToDom(color) {
   const hexColor = generateHexColor(color);
   const rgbColor = generateRGBColor(color);
 
-  document.getElementById("color-display").style.backgroundColor = `#${ hexColor }`;
+  document.getElementById(
+    "color-display"
+  ).style.backgroundColor = `#${hexColor}`;
   document.getElementById("input-hex").value = hexColor;
   document.getElementById("input-rgb").value = rgbColor;
   document.getElementById("color-slider-red").value = color.red;
