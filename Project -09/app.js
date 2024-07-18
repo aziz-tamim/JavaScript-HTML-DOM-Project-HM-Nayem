@@ -9,53 +9,57 @@ let div = null;
 
 // onload handler
 window.onload = () => {
-    main();
-}
+  main();
+};
 
 // main or boot function, this function will take care of getting all the DOM references
 function main() {
-    const generateRandomColorBtn = document.getElementById('generate-random-color');
-    const colorModeHexInp = document.getElementById('color-code-hex');
+  const generateRandomColorBtn = document.getElementById(
+    "generate-random-color"
+  );
+  const colorModeHexInp = document.getElementById('input-hex');
 
-    generateRandomColorBtn.addEventListener(
-        'click',
-        handleGenerateRandomColorBtn
-    );
+  generateRandomColorBtn.addEventListener(
+    "click",
+    handleGenerateRandomColorBtn
+  );
 
-    colorModeHexInp.addEventListener('keyup', function (e) {
-        const hexColor = e.target.value;
-        if (hexColor) {
-            colorModeHexInp.value = hexColor.toUpperCase();
-            if (isValidHex(hexColor)) {
-                const colorDecimal = hexToDecimalColors(color);
-
-            }
-        }
-    })
+  colorModeHexInp.addEventListener('keyup', handleColorModeHexInp);
 }
 
 // event handlers
 function handleGenerateRandomColorBtn() {
-    const color = generateColorDecimal();
-    updateColorCodeToDom(color);
+  const color = generateColorDecimal();
+  updateColorCodeToDom(color);
+}
+
+function handleColorModeHexInp(e) {
+    const hexColor = e.target.value;
+    if (hexColor) {
+        this.value = hexColor.toUpperCase();
+        if (isValidHex(hexColor)) {
+            const color = hexToDecimalColors(hexColor);
+            updateColorCodeToDom(color);
+        }
+    }
 }
 
 // Dom function
 function generateToastMessage(msg) {
-    div = document.createElement('div');
-    div.innerText = msg;
-    div.className = 'toast-message toast-message-slide-in';
+  div = document.createElement("div");
+  div.innerText = msg;
+  div.className = "toast-message toast-message-slide-in";
 
-    div.addEventListener('click', function () {
-        div.classList.remove('toast-message-slide-in')
-        div.classList.add('toast-message-slide-out');
+  div.addEventListener("click", function () {
+    div.classList.remove("toast-message-slide-in");
+    div.classList.add("toast-message-slide-out");
 
-        div.addEventListener('animationend', function () {
-            div.remove();
-            div = null;
-        });
+    div.addEventListener("animationend", function () {
+      div.remove();
+      div = null;
     });
-    docuemnt.body.appendChild(div);
+  });
+  docuemnt.body.appendChild(div);
 }
 
 /**
@@ -63,19 +67,18 @@ function generateToastMessage(msg) {
  * @param {object} color
  */
 function updateColorCodeToDom(color) {
-    const hexColor = generateHexColor(color);
-    const rgbColor = generateRGBColor(color);
+  const hexColor = generateHexColor(color);
+  const rgbColor = generateRGBColor(color);
 
-    document.getElementById('color-display').style.backgroundColor = hexColor;
-    document.getElementById('color-mode-hex').value = hexColor;
-    document.getElementById('color-mode-rgb').value = rgbColor;
-    document.getElementById('color-slider-red').value = color.red;
-    document.getElementById('color-slider-red-label').innerText = color.red;
-    document.getElementById('color-slider-green').value = color.green;
-    document.getElementById('color-slider-green-label').innerText = color.green;
-    document.getElementById('color-slider-blue').value = color.blue;
-    document.getElementById('color-slider-blue-label').innerText = color.blue;
-
+  document.getElementById("color-display").style.backgroundColor = `#${ hexColor }`;
+  document.getElementById("input-hex").value = hexColor;
+  document.getElementById("input-rgb").value = rgbColor;
+  document.getElementById("color-slider-red").value = color.red;
+  document.getElementById("color-slider-red-label").innerText = color.red;
+  document.getElementById("color-slider-green").value = color.green;
+  document.getElementById("color-slider-green-label").innerText = color.green;
+  document.getElementById("color-slider-blue").value = color.blue;
+  document.getElementById("color-slider-blue-label").innerText = color.blue;
 }
 
 // Utils
@@ -85,15 +88,15 @@ function updateColorCodeToDom(color) {
  * @returns {object}
  */
 function generateColorDecimal() {
-    const red = Math.floor(Math.random() * 255);
-    const green = Math.floor(Math.random() * 255);
-    const blue = Math.floor(Math.random() * 255);
+  const red = Math.floor(Math.random() * 255);
+  const green = Math.floor(Math.random() * 255);
+  const blue = Math.floor(Math.random() * 255);
 
-    return {
-        red,
-        green,
-        blue,
-    };
+  return {
+    red,
+    green,
+    blue,
+  };
 }
 
 /**
@@ -101,13 +104,15 @@ function generateColorDecimal() {
  * @param {object} color
  * @param {string}
  */
-function generateHexColor({red, green, blue}) {
-    const getTwoCode = (value) => {
-        const hex = value.toString(16);
-        return hex.length === 1 ? `0${hex}` : hex;
-    };
+function generateHexColor({ red, green, blue }) {
+  const getTwoCode = (value) => {
+    const hex = value.toString(16);
+    return hex.length === 1 ? `0${hex}` : hex;
+  };
 
-    return `#${getTwoCode(red)}${getTwoCode(green)}${getTwoCode(blue)}`.toUpperCase();
+  return `${getTwoCode(red)}${getTwoCode(green)}${getTwoCode(
+    blue
+  )}`.toUpperCase();
 }
 
 /**
@@ -116,7 +121,7 @@ function generateHexColor({red, green, blue}) {
  * @param {string}
  */
 function generateRGBColor({ red, green, blue }) {
-    return `rgb(${red}, ${green}, ${blue})`;
+  return `rgb(${red}, ${green}, ${blue})`;
 }
 
 /**
@@ -125,15 +130,15 @@ function generateRGBColor({ red, green, blue }) {
  * @returns {object}
  */
 function hexToDecimalColors(hex) {
-    const red = parseInt(hex.slice(0, 2), 16);
-    const green = parseInt(hex.slice(2, 4), 16);
-    const blue = parseInt(hex.slice(4), 16);
+  const red = parseInt(hex.slice(0, 2), 16);
+  const green = parseInt(hex.slice(2, 4), 16);
+  const blue = parseInt(hex.slice(4), 16);
 
-    return {
-        red,
-        green,
-        blue
-    };
+  return {
+    red,
+    green,
+    blue,
+  };
 }
 
 /**
@@ -142,6 +147,6 @@ function hexToDecimalColors(hex) {
  * @param {boolean}
  */
 function isValidHex(color) {
-    if (color.length !== 6) return false;
-    return /^[0-9A-Fa-f]{6}$/i.test(color);
+  if (color.length !== 6) return false;
+  return /^[0-9A-Fa-f]{6}$/i.test(color);
 }
