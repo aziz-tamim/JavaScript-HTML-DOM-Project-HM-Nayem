@@ -14,17 +14,35 @@ window.onload = () => {
 
 // main or boot function, this function will take care of getting all the DOM references
 function main() {
+  // dom references
+
   const generateRandomColorBtn = document.getElementById(
     "generate-random-color"
   );
   const colorModeHexInp = document.getElementById("input-hex");
+  const colorSliderRed = document.getElementById("color-slider-red");
+  const colorSliderGreen = document.getElementById("color-slider-green");
+  const colorSliderBlue = document.getElementById("color-slider-blue");
 
+  // event listeners
   generateRandomColorBtn.addEventListener(
     "click",
     handleGenerateRandomColorBtn
   );
-
   colorModeHexInp.addEventListener("keyup", handleColorModeHexInp);
+
+  colorSliderRed.addEventListener(
+    "change",
+    handleColorSliders(colorSliderRed, colorSliderGreen, colorSliderBlue)
+  );
+  colorSliderGreen.addEventListener(
+    "change",
+    handleColorSliders(colorSliderRed, colorSliderGreen, colorSliderBlue)
+  );
+  colorSliderBlue.addEventListener(
+    "change",
+    handleColorSliders(colorSliderRed, colorSliderGreen, colorSliderBlue)
+  );
 }
 
 // event handlers
@@ -42,6 +60,17 @@ function handleColorModeHexInp(e) {
       updateColorCodeToDom(color);
     }
   }
+}
+
+function handleColorSliders(colorSliderRed, colorSliderGreen, colorSliderBlue) {
+  return function () {
+    const color = {
+      red: parseInt(colorSliderRed.value),
+      green: parseInt(colorSliderGreen.value),
+      blue: parseInt(colorSliderBlue.value),
+    };
+    updateColorCodeToDom(color);
+  };
 }
 
 // Dom function
