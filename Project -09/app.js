@@ -15,18 +15,23 @@ window.onload = () => {
 // main or boot function, this function will take care of getting all the DOM references
 function main() {
     const generateRandomColorBtn = document.getElementById('generate-random-color');
-
-    // const root = document.getElementById('root');
-    // const output = document.getElementById('output');
-    // const output2 = document.getElementById('output2');
-    // const changeBtn = document.getElementById('change-btn');
-    // const copyBtn = document.getElementById('copy-btn');
-    // const copyBtn2 = document.getElementById('copy-btn2');
+    const colorModeHexInp = document.getElementById('color-code-hex');
 
     generateRandomColorBtn.addEventListener(
         'click',
         handleGenerateRandomColorBtn
     );
+
+    colorModeHexInp.addEventListener('keyup', function (e) {
+        const hexColor = e.target.value;
+        if (hexColor) {
+            colorModeHexInp.value = hexColor.toUpperCase();
+            if (isValidHex(hexColor)) {
+                const colorDecimal = hexToDecimalColors(color);
+
+            }
+        }
+    })
 }
 
 // event handlers
