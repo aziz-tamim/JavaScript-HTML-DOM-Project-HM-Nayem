@@ -1,6 +1,6 @@
 /**
  *Project Requirements:
- * -Change the background color by generating random rgb color by clicking a button
+ * - Change the background color by generating random rgb color by clicking a button
  */
 
 // Steps
