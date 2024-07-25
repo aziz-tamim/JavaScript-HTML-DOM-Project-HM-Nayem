@@ -52,12 +52,27 @@ function main() {
       throw new Error("Invalid Radio Input");
     }
 
+    if (toastContainer !== null) {
+      toastContainer.remove();
+      toastContainer.null;
+    }
+
     if (mode === "hex") {
       const hexColor = document.getElementById(`input-hex`).value;
-      navigator.clipboard.writeText(`#${hexColor}`);
+      if (hexColor && isValidHex(hexColor)) {
+        navigator.clipboard.writeText(`#${hexColor}`);
+        generateToastMessage(`#${hexColor} Copied`)
+      } else {
+        alert('Invalid Hex Code');
+      }
     } else {
       const rgbColor = document.getElementById("input-rgb").value;
-      navigator.clipboard.writeText(rgbColor);
+      if (rgbColor) {
+        navigator.clipboard.writeText(rgbColor);
+        generateToastMessage(`${rgbColor} Copied`);
+      } else {
+        alert('Invalid RGB Color');
+      }
     }
   });
 }
@@ -109,7 +124,7 @@ function generateToastMessage(msg) {
       toastContainer = null;
     });
   });
-  docuemnt.body.appendChild(div);
+  document.body.appendChild(toastContainer);
 }
 
 /**
