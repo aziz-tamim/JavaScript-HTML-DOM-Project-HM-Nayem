@@ -240,3 +240,43 @@ label {
   opacity: 0.9s;
   box-shadow: 0px 1px 4px 0 rgba(0, 0, 0, 0.2);
 }
+
+/* background preferences */
+.background-preferences {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.background-left-panel {
+  padding: 1rem;
+  width: 100%; 
+}
+
+.background-image {
+  width: 100%;
+  padding-top: 56.25%;
+  border-radius: 0.25rem;
+  background-color: #dddeee;
+  margin-top: 0.5rem;
+  background-repeat: no-repeat !important;
+  background-size: 100% 100% !important;
+  background-position: bottom !important;
+}
+
+.background-control {
+  margin-top: 1rem;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.file-input {
+  display: none;
+}
+
+.background-control-btn {
+  padding: 0.5rem 1rem;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
