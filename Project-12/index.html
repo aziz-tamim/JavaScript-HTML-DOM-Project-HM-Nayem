@@ -10,7 +10,7 @@
   </head>
   <body>
     <div class="container">
-      <!-- display section -->
+      <!-- ===== display section start ===== -->
       <section class="section">
         <div class="section-header">
           <h3 class="section-title">Display Color</h3>
@@ -21,23 +21,18 @@
         <div class="divider"></div>
         <div class="color-display" id="color-display"></div>
       </section>
+      <!-- ===== display section end ===== -->
 
-      <!-- Change & Copy Color -->
+      <!-- ===== Change & Copy Color start ===== -->
       <section class="section">
         <section class="section-header">
           <h3 class="section-title">Change & Copy Color</h3>
           <div class="section-header-action-group">
-            <button
-              class="section-header-action"
-              id="save-to-custom"
-            >
-            save
+            <button class="section-header-action" id="save-to-custom">
+              save
             </button>
-            <button
-              class="section-header-action"
-              id="copy-to-clipboard"
-            >
-            Copy
+            <button class="section-header-action" id="copy-to-clipboard">
+              Copy
             </button>
           </div>
         </section>
@@ -136,8 +131,9 @@
           </div>
         </div>
       </section>
+      <!-- ===== Change & Copy Color end ===== -->
 
-      <!-- color preset -->
+      <!-- ===== color preset start ===== -->
       <section class="section">
         <div class="section-header">
           <h3 class="section-title">Preset Colors</h3>
@@ -145,9 +141,9 @@
         <div class="divider"></div>
         <div class="preset-colors" id="preset-colors"></div>
       </section>
-      <!-- color preset -->
+      <!-- ===== color preset end ===== -->
 
-      <!-- Custom Preset -->
+      <!-- ===== Custom Preset start ===== -->
       <section class="section">
         <div class="section-header">
           <h3 class="section-title">Custom Colors</h3>
@@ -155,7 +151,28 @@
         <div class="divider"></div>
         <div class="preset-colors" id="custom-colors"></div>
       </section>
-      <!-- Custom Preset -->
+      <!-- ===== Custom Preset end ===== -->
+
+      <!-- ===== Banckground Preferences start ===== -->
+      <section class="section">
+        <div class="section-header">
+          <h3 class="section-title">Background Preferences</h3>
+        </div>
+        <div class="divider"></div>
+        <div class="background-preferences">
+          <div class="background-left-panel">
+            <p class="lead">Background Preview</p>
+            <div class="background-image" id="bg-preview"></div>
+            <div class="background-control">
+              <input type="file" class="file-input" id="bg-file-input" />
+              <button class="background-control-btn" id="bg-file-input-btn">
+                Upload
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- ===== Background Preferences end ===== -->
     </div>
   </body>
 </html>
