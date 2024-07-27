@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>document</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script src="./app.js"></script>
+  </head>
+  <body>
+    <div class="container">
+        <h1 class="header-title">Fill The Form Below</h1>
+        <p class="small">* Negative values are not accepted</p>
+        <div class="divider"></div>
+        <div class="display">
+            <h1 class="display-text" id="output">00</h1>
+        </div>
+        <div class="controllers">
+            <input 
+                class="text-input"
+                type="number"
+                id="increment-inp"
+                value="1"
+                min="1"
+                max="100"
+            />
+            <button class="btn" id="increment-btn">Increment</button>
+            <button class="btn" id="decrement-btn">Decrement</button>
+            <input
+                class="text-input"
+                type="number" 
+                id="decrement-inp"
+                value="1"
+                min="1"
+                max="100"
+            />
+        </div>
+    </div>
+  </body>
+</html>
