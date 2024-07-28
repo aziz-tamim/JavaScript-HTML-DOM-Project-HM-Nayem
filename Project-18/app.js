@@ -44,11 +44,11 @@ function displayResult(output) {
 }
 
 function handleInputs(e) {
-    if (parseInt(e.target.value) > 100) {
-      e.target.value = 100;
-    }
-
-    if (parseInt(e.target.value) < 0) {
-      e.target.value = 0;
-    }
+  if (parseInt(e.target.value) > 100) {
+    e.target.value = 100;
   }
+
+  if (parseInt(e.target.value) < 0) {
+    e.target.value = 0;
+  }
+}
