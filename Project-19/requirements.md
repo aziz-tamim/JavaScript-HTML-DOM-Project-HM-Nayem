@@ -6,3 +6,4 @@
 
 - each category can have multiple units. formula of variant - n * (n-1)
 - Swap selected option if select in both side
+- display the actual formula

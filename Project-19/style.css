@@ -1,0 +1,37 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helventica, sans-serif;
+  font-size: 16px;
+  max-width: 100vw;
+  height: 100vh;
+  background-color: #dddeee;
+}
+
+.container {
+  width: 600px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #fff;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 0.25rem;
+}
+
+.header-title {
+  font-size: 22px;
+  font-weight: 500;
+  color: #222;
+}
+
+.divider {
+  width: 100%;
+  height: 1px;
+  margin-top: 0.3rem;
+  background-color: #dddeee;
+}
