@@ -27,6 +27,7 @@ body {
   font-size: 22px;
   font-weight: 500;
   color: #222;
+  text-align: center;
 }
 
 .divider {
@@ -34,4 +35,52 @@ body {
   height: 1px;
   margin-top: 0.3rem;
   background-color: #dddeee;
+}
+
+label {
+  user-select: none;
+}
+
+.text-input {
+    width: 100%;
+    border: 1px solid #dddeee;
+    border-radius: 0.15rem;
+    padding: 0.5rem 1rem;
+    margin-top: 0.25rem;
+    margin-bottom: 10px;
+}
+
+.category-wrap {
+  margin-top: 2rem;
+}
+
+.input-group-wrap {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.equal {
+    font-size: 2rem;
+}
+
+.formula-wrap {
+    margin-top: 2rem;
+    background-color: #dddeee;
+    padding: 1rem;
+    border-radius: 0.25rem;
+}
+
+.formula-wrap h3 {
+    color: #333333;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.formula-wrap p {
+    font-size: 0.9rem;
+    color: #666;
+    margin-top: 0.5rem;
+    line-height: 1.3;
 }
