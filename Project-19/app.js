@@ -53,12 +53,44 @@ function main() {
     addOption(categorySelect, { value: item, text: converter[item].name });
   });
 
-  // handle left select
+  categorySelect.addEventListener("change", function () {
+    const converterName = categorySelect.value;
+    const units = converter[converterName].units;
+    // handle left select
+    removeAllChild(leftSelect);
+    const leftOption = Object.keys(units);
+    leftOption.forEach((item) => {
+      addOption(leftSelect, { value: item, text: units[item] });
+    });
+
+    // handle right select
+    removeAllChild(rightSelect);
+    const rightOption = Object.keys(units);
+    rightOption.forEach((item) => {
+      addOption(rightSelect, { value: item, text: units[item] });
+    });
+
+    rightSelect.getElementsByTagName("option")[2].selected = "selected";
+  });
+
   const converterName = categorySelect.value;
+  const units = converter[converterName].units;
+
+  // handle left select
   removeAllChild(leftSelect);
+  const leftOption = Object.keys(units);
+  leftOption.forEach((item) => {
+    addOption(leftSelect, { value: item, text: units[item] });
+  });
 
   // handle right select
   removeAllChild(rightSelect);
+  const rightOption = Object.keys(units);
+  rightOption.forEach((item) => {
+    addOption(rightSelect, { value: item, text: units[item] });
+  });
+
+  rightSelect.getElementsByTagName("option")[2].selected = "selected";
 }
 
 function addOption(parent, option) {
