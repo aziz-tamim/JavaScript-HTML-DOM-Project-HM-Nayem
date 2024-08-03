@@ -164,7 +164,12 @@
             <p class="lead">Background Preview</p>
             <div class="background-image" id="bg-preview"></div>
             <div class="background-control">
-              <input type="file" class="file-input" id="bg-file-input" accept="imgae/*"/>
+              <input
+                type="file"
+                class="file-input"
+                id="bg-file-input"
+                accept="imgae/*"
+              />
               <button class="background-control-btn" id="bg-file-delete-btn">
                 Remove
               </button>
@@ -173,55 +178,59 @@
               </button>
             </div>
           </div>
-        <div class="background-right-panel">
-          <div id="bg-controller">
-            <div class="select-group">
-              <label class="lead" for="bg-size">Background Size</label>
-              <select name="bg-size" id="bg-size" class="text-input">
-                <option value="auto">Auto</option>
-                <option value="inherit">Inherit</option>
-                <option value="contain">Contain</option>
-                <option value="cover">Cover</option>
-              </select>
-            </div>
-            <div class="select-group">
-              <label class="lead" for="bg-repeat">Background Repeat</label>
-              <select name="bg-repeat" id="bg-repeat" class="text-input">
-                <option value="repeat">Repeat</option>
-                <option value="no-repeat">No Repeat</option>
-              </select>
-            </div>
-            <div class="select-group">
-              <label class="lead" for="bg-position">
-                Background Position
-              </label>
-              <select name="bg-position" id="bg-position" class="text-input">
-                <option value="left top">Left Top</option>
-                <option value="left center">Left Center</option>
-                <option value="left bottom">Left Bottom</option>
-                <option value="right top">Right Top</option>
-                <option value="right center">Right Center</option>
-                <option value="right bottom">Right Bottom</option>
-                <option value="center top">Center Top</option>
-                <option value="center center">Center Center</option>
-                <option value="center bottom">Center Bottom</option>
-              </select>
-            </div>
-            <div class="select-group">
-              <label class="lead" for="bg-attachment">
-                Background Attachment
-              </label>
-              <select name="bg-attachment" id="bg-attachment" class="text-input">
-                <option value="auto">Initial</option>
-                <option value="inherit">Inherit</option>
-                <option value="local">Local</option>
-                <option value="fixed">Fixed</option>
-                <option value="scroll">Scroll</option>
-              </select>
+          <div class="background-right-panel">
+            <div id="bg-controller">
+              <div class="select-group">
+                <label class="lead" for="bg-size">Background Size</label>
+                <select name="bg-size" id="bg-size" class="text-input">
+                  <option value="auto">Auto</option>
+                  <option value="inherit">Inherit</option>
+                  <option value="contain">Contain</option>
+                  <option value="cover">Cover</option>
+                </select>
+              </div>
+              <div class="select-group">
+                <label class="lead" for="bg-repeat">Background Repeat</label>
+                <select name="bg-repeat" id="bg-repeat" class="text-input">
+                  <option value="repeat">Repeat</option>
+                  <option value="no-repeat">No Repeat</option>
+                </select>
+              </div>
+              <div class="select-group">
+                <label class="lead" for="bg-position">
+                  Background Position
+                </label>
+                <select name="bg-position" id="bg-position" class="text-input">
+                  <option value="left top">Left Top</option>
+                  <option value="left center">Left Center</option>
+                  <option value="left bottom">Left Bottom</option>
+                  <option value="right top">Right Top</option>
+                  <option value="right center">Right Center</option>
+                  <option value="right bottom">Right Bottom</option>
+                  <option value="center top">Center Top</option>
+                  <option value="center center">Center Center</option>
+                  <option value="center bottom">Center Bottom</option>
+                </select>
+              </div>
+              <div class="select-group">
+                <label class="lead" for="bg-attachment">
+                  Background Attachment
+                </label>
+                <select
+                  name="bg-attachment"
+                  id="bg-attachment"
+                  class="text-input"
+                >
+                  <option value="auto">Initial</option>
+                  <option value="inherit">Inherit</option>
+                  <option value="local">Local</option>
+                  <option value="fixed">Fixed</option>
+                  <option value="scroll">Scroll</option>
+                </select>
+              </div>
             </div>
           </div>
         </div>
-      </div>
       </section>
       <!-- ===== Background Preferences end ===== -->
     </div>

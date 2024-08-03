@@ -113,14 +113,14 @@ function main() {
     bgFileDeleteBtn.style.display = "inline";
   });
 
-  bgFileDeleteBtn.addEventListener('click', function () {
-    bgPreview.style.background = 'none';
+  bgFileDeleteBtn.addEventListener("click", function () {
+    bgPreview.style.background = "none";
     bgPreview.style.backgroundColor = "#dddeee";
-    document.body.style.background = 'none';
+    document.body.style.background = "none";
     document.body.style.backgroundColor = "#dddeee";
-    bgFileDeleteBtn.style.display = 'none';
+    bgFileDeleteBtn.style.display = "none";
     bgFileInput.value = null;
-  })
+  });
 }
 
 // event handlers
