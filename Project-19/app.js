@@ -53,51 +53,19 @@ function main() {
     addOption(categorySelect, { value: item, text: converter[item].name });
   });
 
+  // set default category units
+  updateCategoryChanges(categorySelect, leftSelect, rightSelect);
+
   categorySelect.addEventListener("change", function () {
-    const converterName = categorySelect.value;
-    const units = converter[converterName].units;
-    // handle left select
-    removeAllChild(leftSelect);
-    const leftOption = Object.keys(units);
-    leftOption.forEach((item) => {
-      addOption(leftSelect, { value: item, text: units[item] });
-    });
-
-    // handle right select
-    removeAllChild(rightSelect);
-    const rightOption = Object.keys(units);
-    rightOption.forEach((item) => {
-      addOption(rightSelect, { value: item, text: units[item] });
-    });
-
-    rightSelect.getElementsByTagName("option")[2].selected = "selected";
+    updateCategoryChanges(categorySelect, leftSelect, rightSelect);
   });
-
-  const converterName = categorySelect.value;
-  const units = converter[converterName].units;
-
-  // handle left select
-  removeAllChild(leftSelect);
-  const leftOption = Object.keys(units);
-  leftOption.forEach((item) => {
-    addOption(leftSelect, { value: item, text: units[item] });
-  });
-
-  // handle right select
-  removeAllChild(rightSelect);
-  const rightOption = Object.keys(units);
-  rightOption.forEach((item) => {
-    addOption(rightSelect, { value: item, text: units[item] });
-  });
-
-  rightSelect.getElementsByTagName("option")[2].selected = "selected";
 }
 
 function addOption(parent, option) {
   const opt = document.createElement("option");
   opt.setAttribute("value", option.value);
   opt.innerText = option.text;
-
+     
   parent.appendChild(opt);
 }
 
@@ -105,4 +73,25 @@ function removeAllChild(parent) {
   while (parent.firstChild) {
     parent.firstChild.remove();
   }
+}
+
+function handleCategoryChange(categorySelect, leftSelect, rightSelect) {
+  const converterName = categorySelect.value;
+  const units = converter[converterName].units;
+  const options = Object.keys(units);
+
+  // handle left select
+  removeAllChild(leftSelect);
+  options.forEach((item) => {
+    addOption(leftSelect, { value: item, text: units[item] });
+  });
+
+  // handle right select
+  removeAllChild(rightSelect);
+  options.forEach((item) => {
+    addOption(rightSelect, { value: item, text: units[item] });
+  });
+
+  // change default option of right select
+  rightSelect.getElementsByTagName("option")[2].selected = "selected";
 }
