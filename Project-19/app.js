@@ -65,7 +65,7 @@ function addOption(parent, option) {
   const opt = document.createElement("option");
   opt.setAttribute("value", option.value);
   opt.innerText = option.text;
-     
+
   parent.appendChild(opt);
 }
 
@@ -75,7 +75,7 @@ function removeAllChild(parent) {
   }
 }
 
-function handleCategoryChange(categorySelect, leftSelect, rightSelect) {
+function updateCategoryChanges(categorySelect, leftSelect, rightSelect) {
   const converterName = categorySelect.value;
   const units = converter[converterName].units;
   const options = Object.keys(units);
