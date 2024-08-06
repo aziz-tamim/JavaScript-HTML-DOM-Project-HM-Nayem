@@ -64,14 +64,32 @@ function main() {
   });
 
   leftSelect.addEventListener("change", function (event) {
-    if(event.target.value == rightSelect.value) {
-        const options = rightSelect.getElementsByTagName('option')
-        for (let i = 0; i < options.length; i++) {
-            if (lastLeftSelectedValue == options[i].value) {
-                
-            }
+    if (event.target.value == rightSelect.value) {
+      const options = rightSelect.getElementsByTagName("option");
+      for (let i = 0; i < options.length; i++) {
+        if (lastLeftSelectedValue == options[i].value) {
+          options[i].selected = "selected";
+          lastRightSelectedValue = options[i].value;
+          break;
         }
+      }
     }
+
+    lastLeftSelectedValue = event.target.value;
+  });
+
+  rightSelect.addEventListener("change", function (event) {
+    if (event.target.value == leftSelect.value) {
+      const options = leftSelect.getElementsByTagName("option");
+      for (let i = 0; i < options.length; i++) {
+        if (lastRightSelectedValue == options[i].value) {
+          options[i].selected = "selected";
+          lastLeftSelectedValue = options[i].value;
+          break;
+        }
+      }
+    }
+    lastRightSelectedValue = event.target.value;
   });
 
   rightSelect.addEventListener("change", function (event) {});
@@ -102,7 +120,7 @@ function updateCategoryChanges(categorySelect, leftSelect, rightSelect) {
     addOption(leftSelect, { value: item, text: units[item] });
   });
   lastLeftSelectedValue = leftSelect.value;
-  
+
   // handle right select
   removeAllChild(rightSelect);
   options.forEach((item) => {
