@@ -171,8 +171,11 @@ let lastRightSelectedValue = "";
 
 function main() {
   const categorySelect = document.getElementById("category-select");
+  const leftInput = document.getElementById("left-inp");
+  const rightInput = document.getElementById("right-inp");
   const leftSelect = document.getElementById("left-select");
   const rightSelect = document.getElementById("right-select");
+  const formulaText = document.getElementById("formula-text");
 
   const converterKeys = Object.keys(converter).sort();
   removeAllChild(categorySelect);
@@ -182,6 +185,14 @@ function main() {
 
   // set default category units
   updateCategoryChanges(categorySelect, leftSelect, rightSelect);
+
+  const converterName = categorySelect.value;
+  const variants = converter[converterName].variants;
+  const variantKey = `${leftSelect.value}:${rightSelect.value}`;
+  const variant = variants[variantKey];
+  formulaText.innerText = variant.formula;
+  leftInput.value = 1;
+  rightInput.value = variant.calculation(1);
 
   categorySelect.addEventListener("change", function () {
     updateCategoryChanges(categorySelect, leftSelect, rightSelect);
