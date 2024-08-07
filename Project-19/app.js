@@ -171,11 +171,10 @@ let lastRightSelectedValue = "";
 
 function main() {
   const categorySelect = document.getElementById("category-select");
-  const leftInput = document.getElementById("left-inp");
-  const rightInput = document.getElementById("right-inp");
   const leftSelect = document.getElementById("left-select");
   const rightSelect = document.getElementById("right-select");
-  const formulaText = document.getElementById("formula-text");
+  const leftInput = document.getElementById("left-inp");
+  const rightInput = document.getElementById("right-inp");
 
   const converterKeys = Object.keys(converter).sort();
   removeAllChild(categorySelect);
@@ -186,16 +185,24 @@ function main() {
   // set default category units
   updateCategoryChanges(categorySelect, leftSelect, rightSelect);
 
-  const converterName = categorySelect.value;
-  const variants = converter[converterName].variants;
-  const variantKey = `${leftSelect.value}:${rightSelect.value}`;
-  const variant = variants[variantKey];
-  formulaText.innerText = variant.formula;
-  leftInput.value = 1;
-  rightInput.value = variant.calculation(1);
-
   categorySelect.addEventListener("change", function () {
     updateCategoryChanges(categorySelect, leftSelect, rightSelect);
+  });
+
+  leftInput.addEventListener("keyup", function (event) {
+    if (event.target.value) {
+      calculateValue(categorySelect, leftSelect, rightSelect);
+    } else {
+      rightInput.value = "";
+    }
+  });
+
+  rightInput.addEventListener("keyup", function (event) {
+    if (event.target.value) {
+      calculateValue(categorySelect, leftSelect, rightSelect);
+    } else {
+      leftInput.value = "";
+    }
   });
 
   leftSelect.addEventListener("change", function (event) {
@@ -211,6 +218,7 @@ function main() {
     }
 
     lastLeftSelectedValue = event.target.value;
+    calculateValue(categorySelect, leftSelect, rightSelect);
   });
 
   rightSelect.addEventListener("change", function (event) {
@@ -225,9 +233,8 @@ function main() {
       }
     }
     lastRightSelectedValue = event.target.value;
+    calculateValue(categorySelect, leftSelect, rightSelect);
   });
-
-  rightSelect.addEventListener("change", function (event) {});
 }
 
 function addOption(parent, option) {
@@ -265,6 +272,20 @@ function updateCategoryChanges(categorySelect, leftSelect, rightSelect) {
   // change default option of right select
   rightSelect.getElementsByTagName("option")[1].selected = "selected";
   lastRightSelectedValue = rightSelect.value;
+
+  calculateValue(categorySelect, leftSelect, rightSelect);
 }
 
-function calculateValue() {}
+function calculateValue(categorySelect, leftSelect, rightSelect) {
+  const leftInput = document.getElementById("left-inp");
+  const rightInput = document.getElementById("right-inp");
+  const formulaText = document.getElementById("formula-text");
+
+  const converterName = categorySelect.value;
+  const variants = converter[converterName].variants;
+  const variantKey = `${leftSelect.value}:${rightSelect.value}`;
+  const variant = variants[variantKey];
+  formulaText.innerText = variant.formula;
+  leftInput.value = 1;
+  rightInput.value = variant.calculation(1);
+}
