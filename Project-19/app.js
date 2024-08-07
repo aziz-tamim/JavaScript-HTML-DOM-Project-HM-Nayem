@@ -191,12 +191,12 @@ function main() {
 
   leftInput.addEventListener("keyup", function (event) {
     if (event.target.value && !isNaN(event.target.value)) {
-        const converterName = categorySelect.value;
-        const variants = converter[converterName].variants;
-        const variantKey = `${leftSelect.value}:${rightSelect.value}`;
-        const variant = variants[variantKey];
-        leftInput.value = Number(event.target.value);
-        rightInput.value = variant.calculation(Number(event.target.value));
+      const converterName = categorySelect.value;
+      const variants = converter[converterName].variants;
+      const variantKey = `${leftSelect.value}:${rightSelect.value}`;
+      const variant = variants[variantKey];
+      leftInput.value = Number(event.target.value);
+      rightInput.value = variant.calculation(Number(event.target.value));
     } else {
       rightInput.value = "";
     }
@@ -204,12 +204,12 @@ function main() {
 
   rightInput.addEventListener("keyup", function (event) {
     if (event.target.value && !isNaN(event.target.value)) {
-        const converterName = categorySelect.value;
-        const variants = converter[converterName].variants;
-        const variantKey = `${leftSelect.value}:${rightSelect.value}`;
-        const variant = variants[variantKey];
-        rightInput.value = Number(event.target.value);
-        leftInput.value = variant.calculation(Number(event.target.value));
+      const converterName = categorySelect.value;
+      const variants = converter[converterName].variants;
+      const variantKey = `${leftSelect.value}:${rightSelect.value}`;
+      const variant = variants[variantKey];
+      rightInput.value = Number(event.target.value);
+      leftInput.value = variant.calculation(Number(event.target.value));
     } else {
       leftInput.value = "";
     }
