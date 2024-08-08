@@ -358,7 +358,7 @@ function changeBackgroundPreferences() {
 
 /**
  * generate and return an object of three color decimal values
- * @returns {object}}
+ * @returns {object}
  */
 function generateColorDecimal() {
   const red = Math.floor(Math.random() * 255);

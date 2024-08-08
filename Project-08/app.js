@@ -116,8 +116,6 @@ function hexToRgb(hex) {
   return `rgb(${red}, ${green}, ${blue})`;
 }
 
-console.log(hexToRgb("FFFFFF"));
-
 function generateToastMessage(msg) {
   div = document.createElement("div");
   div.innerText = msg;
