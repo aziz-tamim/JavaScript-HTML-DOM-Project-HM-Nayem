@@ -389,7 +389,6 @@ function updateCategoryChanges(categorySelect, leftSelect, rightSelect) {
   options.forEach((item) => {
     addOption(rightSelect, { value: item, text: units[item] });
   });
-
   // change default option of right select
   rightSelect.getElementsByTagName("option")[1].selected = "selected";
   lastRightSelectedValue = rightSelect.value;
