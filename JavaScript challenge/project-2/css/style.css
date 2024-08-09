@@ -1,0 +1,94 @@
+@import url("https://fonts.googleapis.com/css?family=Fira+Mono|Source+Sans+Pro:400,700&display=swap");
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+	background: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" opacity="0.1" viewBox="-175 -175 350 350"%3E%3Cg fill="none" stroke="currentColor"%3E%3Ccircle r="47.5" stroke-width="5"/%3E%3C/g%3E%3Cg transform="rotate(25)"%3E%3Cg fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"%3E%3Cpath id="hand" d="M 0 0 v 35 l -5 -5 10 0 -5 5" /%3E%3Cuse href="%23hand" transform="rotate(125)" /%3E%3Cuse href="%23hand" transform="rotate(-125)" /%3E%3C/g%3E%3C/g%3E%3Ccircle fill="currentColor" r="5" /%3E%3C/svg%3E'),
+		hsl(0, 0%, 95%);
+    background-size: 100px;
+    font-family: "Source Sans Pro", sans-serif;
+    height: 100vh;
+}
+
+.container {
+    margin: auto;
+    max-width: 350px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.container > * + *,
+.stopwatch > * + *,
+article > * + * {
+    margin-top: 1.5rem;
+}
+
+.stopwatch {
+    margin: 1rem auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    background-color: palegreen;
+    border-radius: 20px;
+}
+
+.controls {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.control {
+    outline-style: none;
+}
+
+.control:hover {
+    background-color: yellow;
+    font-size: 102%;
+    font-weight: bold;
+}
+
+.controls button {
+    padding: 0.5rem;
+    background: none;
+    border: 1px solid currentColor;
+    width: 0;
+    flex-grow: 1;
+}
+
+.controls button + button {
+    border-left: none;
+}
+
+.controls button:first-of-type {
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+.controls button:last-of-type {
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+article {
+	line-height: 1.5;
+	counter-set: custom-counter;
+    counter-increment: custom-counter;
+    background: hsl(0, 0%, 100%);
+    box-shadow: 0 1px 10px -5px hsla(0, 0%, 0%, 0.2);
+    padding: 1rem;
+}
+
+code {
+    font-family: "Fira Mona", monospace;
+    font-size: 1rem;
+    border-bottom: 2px dotted hsl(0, 0%, 5%);
+}
