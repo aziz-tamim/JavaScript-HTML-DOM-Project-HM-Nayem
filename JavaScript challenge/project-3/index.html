@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500&display=swap"
+      rel="stylesheet"
+    />
+    <title>Calculate your BMI</title>
+  </head>
+  <body>
+    <h1 class="title">BMI Calculator with Vanilla Js</h1>
+    <div class="container">
+      <div class="input-group">
+        <label for="weight-input" id="wlabel">Enter Your Weight(kg):</label>
+        <input type="number" id="weight-input" />
+      </div>
+      <div class="input-group">
+        <label for="height-input" id="hlabel">Enter Your Height(inch):</label>
+        <input type="number" id="height-input" />
+      </div>
+      <div class="input-group btn-group">
+        <button class="success" id="btn-success">Calculate</button>
+        <div class="spacer"></div>
+        <button class="danger" id="btn-reset">Reset</button>
+      </div>
+    </div>
+    <div class="container mtop result">
+        <p>
+            Your BMI is :
+            <span id="dynamic__bmi">_________</span>
+        </p>
+        <p class="bmi_texts" id="bmi_text"></p>
+    </div>
+    <script src="./app.js"></script>
+  </body>
+</html>
